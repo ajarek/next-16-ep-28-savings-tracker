@@ -64,7 +64,7 @@ const FinancialGoals = () => {
             </CardFooter>
           </Card>
         ))}
-        <Card>
+        <Card className='border-2 transition-all duration-300 ease-in-out hover:border-dashed hover:border-accent'>
           <Link
             href='/dashboard/goals'
             className=' h-full flex flex-col items-center justify-center gap-4 '
