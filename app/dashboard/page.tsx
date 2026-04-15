@@ -1,4 +1,5 @@
 import { ChartBarDefault } from "@/components/ChartBar"
+import FinancialGoals from "@/components/FinancialGoals"
 import { ChartNoAxesCombined, Check, Flag, Plus, TrendingUp } from "lucide-react"
 import Image from "next/image"
 import React from "react"
@@ -87,6 +88,7 @@ const Dashboard = () => {
         </div>
       </div>
       <ChartBarDefault />
+      <FinancialGoals/>
     </div>
   )
 }
