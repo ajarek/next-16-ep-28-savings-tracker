@@ -1,8 +1,13 @@
 import { ChartBarDefault } from "@/components/ChartBar"
 import FinancialGoals from "@/components/FinancialGoals"
-import { ChartNoAxesCombined, Check, Flag, Plus, TrendingUp } from "lucide-react"
+import {
+  ChartNoAxesCombined,
+  Check,
+  Flag,
+  Plus,
+  TrendingUp,
+} from "lucide-react"
 import Image from "next/image"
-import React from "react"
 
 const Dashboard = () => {
   const user = {
@@ -14,10 +19,7 @@ const Dashboard = () => {
     <div className='w-full max-w-8xl mx-auto flex flex-col gap-4 px-8 py-4'>
       <div className='flex justify-between items-center'>
         <div>
-          <h1 className='text-3xl font-bold'>Financial Overview</h1>
-          <p className='text-lg text-muted-foreground text-wrap'>
-            Welcome back. Your assets grew by 4.2% this month.
-          </p>
+          <h1 className='text-3xl font-bold'>Advanced Analytics</h1>
         </div>
         <div className='flex items-center flex-wrap gap-2'>
           <Image
@@ -88,7 +90,7 @@ const Dashboard = () => {
         </div>
       </div>
       <ChartBarDefault />
-      <FinancialGoals/>
+      <FinancialGoals />
     </div>
   )
 }

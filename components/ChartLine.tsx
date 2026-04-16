@@ -1,7 +1,7 @@
 "use client"
 
 import { TrendingUp } from "lucide-react"
-import { Bar, BarChart, CartesianGrid, XAxis } from "recharts"
+import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
 
 import {
   Card,
@@ -18,13 +18,13 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart"
 
-export const description = "A bar chart"
+export const description = "A line chart"
 
 const chartData = [
   { month: "January", desktop: 186 },
-  { month: "February", desktop: 305 },
+  { month: "February", desktop: 205 },
   { month: "March", desktop: 237 },
-  { month: "April", desktop: 73 },
+  { month: "April", desktop: 173 },
   { month: "May", desktop: 209 },
   { month: "June", desktop: 214 },
   { month: "July", desktop: 219 },
@@ -42,30 +42,44 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function ChartBarDefault() {
+export function ChartLine() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Monthly Deposits</CardTitle>
-        <CardDescription>Capital inflow velocity per month</CardDescription>
+        <CardTitle className="text-2xl font-bold">Portfolio Performance</CardTitle>
+        <CardDescription className="text-sm text-muted-foreground">Aggregated growth across all asset classes</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="max-h-[360px] min-h-[360px] w-full">
-          <BarChart accessibilityLayer data={chartData}>
+          <LineChart
+            accessibilityLayer
+            data={chartData}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
             <CartesianGrid vertical={false} />
             <XAxis
               dataKey="month"
               tickLine={false}
-              tickMargin={10}
               axisLine={false}
+              tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
+           
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
-            <Bar dataKey="desktop" fill="var(--color-desktop)" radius={8} />
-          </BarChart>
+            <Line
+              dataKey="desktop"
+              type="natural"
+              stroke="var(--color-desktop)"
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
         </ChartContainer>
       </CardContent>
     </Card>
