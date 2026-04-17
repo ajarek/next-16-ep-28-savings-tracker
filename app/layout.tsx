@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils"
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/AppSidebar"
 import { ThemeProvider } from "@/components/ThemeProvider"
+import { Toaster } from "sonner"
 
 const inter = Inter({
   variable: "--font-sans",
@@ -39,6 +40,7 @@ export default function RootLayout({
             <main className='flex flex-col w-full flex-1 overflow-y-auto'>
               <SidebarTrigger />
               {children}
+              <Toaster />
             </main>
           </SidebarProvider>
         </ThemeProvider>
