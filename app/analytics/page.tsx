@@ -1,9 +1,12 @@
+"use client"
 import { ChartLine } from "@/components/ChartLine"
 import { Progress } from "@/components/ui/progress"
 import { MoveUpRight, Zap } from "lucide-react"
 import Link from "next/link"
+import {useFinancialGoals} from "@/store/financialGoals"
 
 const AnalyticsPage = () => {
+  const {items} = useFinancialGoals()
   return (
     <div className='w-full max-w-8xl mx-auto flex flex-col gap-4 px-8 py-4'>
       <div>
@@ -17,22 +20,22 @@ const AnalyticsPage = () => {
           <div className='flex flex-col gap-4'>
             <p className='text-base '>Net Worth Growth</p>
             <h1 className='text-5xl font-bold'>
-              $248,592<span className='text-primary'>.84</span>
+              ${items.reduce((acc, item) => acc + item.currentAmount, 0).toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2})}
             </h1>
           </div>
           <div className='flex flex-col gap-2'>
             <div className='flex items-center justify-between text-xl'>
               <p className='text-muted-foreground'>Progress:</p>
-              <p className='text-primary'>64%</p>
+              <p className='text-primary'>  {(items.reduce((acc, item) => acc + item.currentAmount, 0)/items.reduce((acc, item) => acc + item.targetAmount, 0)*10 ).toFixed(2)}%</p>
             </div>
-            <Progress value={64} />
+            <Progress value={(items.reduce((acc, item) => acc + item.currentAmount, 0)/items.reduce((acc, item) => acc + item.targetAmount, 0)*10 )} />
           </div>
         </div>
 
         <div className='flex items-center justify-between gap-4 rounded-2xl p-4  border border-foreground/10 shadow-2xl'>
           <div className='min-h-60 flex flex-col justify-between gap-4'>
             <p className='text-base '>Projected Wealth (5Y)</p>
-            <h1 className='text-3xl font-bold'>$2.4M</h1>
+            <h1 className='text-3xl font-bold'>${(items.reduce((acc, item) => acc + item.targetAmount, 0)/1000000).toFixed(2)}M</h1>
             <p className='text-muted-foreground'>
               Based on current trajectory and{" "}
               <span className='text-accent '>8.2% avg. annual return.</span>
@@ -45,7 +48,7 @@ const AnalyticsPage = () => {
               <p className='text-base '>Active Portfolio</p>
               <Zap className=' size-6 text-primary ' />
             </div>
-            <h1 className='text-3xl font-bold'>14 Assets</h1>
+            <h1 className='text-3xl font-bold'>{items.length} Goals</h1>
             <div className='flex flex-col gap-2'>
               <div className='flex items-center justify-between '>
                 <div className='text-sm text-muted-foreground'>
