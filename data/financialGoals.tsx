@@ -1,12 +1,10 @@
-import { Car, House, Landmark, PiggyBank } from "lucide-react";
-
 export const financialGoals = [
     {
         id: 1,
         name: "Emergency Fund",
         targetAmount: 10000,
         currentAmount: 5000,
-        icon: <Landmark />,
+        icon: "Landmark",
         deadline: "2029-12-31",
         priority: "high",
     },
@@ -15,7 +13,7 @@ export const financialGoals = [
         name: "House Down Payment",
         targetAmount: 50000,
         currentAmount: 20000,
-        icon: <House />,
+        icon: "House",
         deadline: "2035-12-31",
         priority: "medium",
     },
@@ -24,7 +22,7 @@ export const financialGoals = [
         name: "Retirement",
         targetAmount: 100000,
         currentAmount: 30000,
-        icon: <PiggyBank />,
+        icon: "PiggyBank",
         deadline: "2030-12-31",
         priority: "medium",
     },
@@ -33,7 +31,7 @@ export const financialGoals = [
         name: "Electric Roadster",
         targetAmount: 100000,
         currentAmount: 30000,
-        icon: <Car />,
+        icon: "Car",
         deadline: "2030-12-31",
         priority: "high",
     }

@@ -1,9 +1,9 @@
     export type Record = {
-        id: number,
+        id: number|string,
         name: string,
         targetAmount: number,
         currentAmount: number,
-        icon: React.ReactNode,
+        icon: string,
         deadline: string,
         priority: string,
     }

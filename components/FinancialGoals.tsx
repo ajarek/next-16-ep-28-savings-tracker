@@ -1,4 +1,5 @@
-import { financialGoals } from "@/data/financialGoals"
+"use client"
+
 import {
   Card,
   CardAction,
@@ -9,18 +10,42 @@ import {
   CardTitle,
 } from "./ui/card"
 import { Progress } from "@/components/ui/progress"
-import { Plus } from "lucide-react"
+import {
+  Landmark,
+  Plus,
+  PiggyBank,
+  Gem,
+  House,
+  Car,
+  HelpCircle,
+} from "lucide-react"
 import Link from "next/link"
+import { useFinancialGoals } from "@/store/financialGoals"
+
+const iconMap: Record<string, React.ElementType> = {
+  Landmark,
+  PiggyBank,
+  Gem,
+  House,
+  Car,
+}
+
+function GoalIcon({ name }: { name: string }) {
+  if (typeof name !== "string") return <Landmark />
+  const IconComponent = iconMap[name] || HelpCircle
+  return <IconComponent />
+}
 
 const FinancialGoals = () => {
+  const { items } = useFinancialGoals()
   return (
     <div className='w-full max-w-8xl mx-auto flex flex-col gap-4 px-8 py-4'>
       <h1 className='text-2xl font-bold'>Active Financial Goals</h1>
       <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-        {financialGoals.map((goal) => (
+        {items.map((goal) => (
           <Card key={goal.id} className=''>
             <CardHeader className='text-primary'>
-              {goal.icon}
+              <GoalIcon name={goal.icon} />
               <CardAction>
                 <CardDescription className='text-accent uppercase'>
                   <span className='text-muted-foreground lowercase'>

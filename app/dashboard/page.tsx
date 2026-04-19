@@ -90,7 +90,7 @@ const Dashboard = () => {
         </div>
       </div>
       <ChartBarDefault />
-      <FinancialGoals />
+      <FinancialGoals  />
     </div>
   )
 }
