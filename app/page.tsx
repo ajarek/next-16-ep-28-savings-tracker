@@ -11,7 +11,7 @@ export default function Home() {
               Redefining Private Wealth
             </span>
             <h1 className='text-5xl sm:text-6xl md:text-8xl font-extrabold tracking-tighter leading-[0.9] max-w-4xl mx-auto mb-8'>
-              Command Your <br className="hidden sm:block" /> Financial Future
+              Command Your <br className='hidden sm:block' /> Financial Future
             </h1>
             <p className='text-muted-foreground text-lg sm:text-xl max-w-2xl mx-auto mb-10 leading-relaxed px-4 sm:px-0'>
               The obsidian ledger for the modern investor. Secure your assets in
@@ -279,7 +279,8 @@ export default function Home() {
             <div className='absolute top-0 right-0 w-[400px] h-[400px] rounded-full -translate-y-1/2 translate-x-1/2'></div>
             <div className='relative z-10'>
               <h2 className='text-3xl sm:text-4xl md:text-6xl font-extrabold mb-6 sm:mb-8 tracking-tighter'>
-                Your Future Deserves <br className="hidden sm:block" /> A Better Foundation.
+                Your Future Deserves <br className='hidden sm:block' /> A Better
+                Foundation.
               </h2>
               <p className='text-lg sm:text-xl max-w-xl mx-auto mb-8 sm:mb-12'>
                 Join the next generation of private wealth management. Secure

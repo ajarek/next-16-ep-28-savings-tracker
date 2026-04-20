@@ -1,4 +1,4 @@
-import { LayoutDashboard, ScrollText, TrendingUp, Wallet } from "lucide-react"
+import { LayoutDashboard, TrendingUp, Wallet } from "lucide-react"
 
 export const links = [
   {
@@ -16,10 +16,6 @@ export const links = [
     url: "/vaults",
     icon: Wallet,
   },
-  {
-    name: "Transactions",
-    url: "/transactions",
-    icon: ScrollText,
-  },
+ 
   
 ]

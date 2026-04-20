@@ -32,7 +32,7 @@ const Dashboard = () => {
       </div>
       <HeroDashboard />
       <ChartBarDefault />
-      <FinancialGoals  />
+      <FinancialGoals />
     </div>
   )
 }

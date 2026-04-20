@@ -22,7 +22,7 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
-import {useFinancialGoals} from "@/store/financialGoals"
+import { useFinancialGoals } from "@/store/financialGoals"
 
 const formSchema = z.object({
   name: z
@@ -52,7 +52,7 @@ const formSchema = z.object({
 })
 
 export function FormAddGoal() {
-  const { addItemToRecords} = useFinancialGoals()
+  const { addItemToRecords } = useFinancialGoals()
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -89,7 +89,7 @@ export function FormAddGoal() {
       deadline: data.deadline,
       priority: data.priority,
     }
-     addItemToRecords(newGoal)
+    addItemToRecords(newGoal)
     form.reset()
   }
 

@@ -1,13 +1,10 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
-import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts"
-
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
@@ -46,11 +43,18 @@ export function ChartLine() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle className="text-2xl font-bold">Portfolio Performance</CardTitle>
-        <CardDescription className="text-sm text-muted-foreground">Aggregated growth across all asset classes</CardDescription>
+        <CardTitle className='text-2xl font-bold'>
+          Portfolio Performance
+        </CardTitle>
+        <CardDescription className='text-sm text-muted-foreground'>
+          Aggregated growth across all asset classes
+        </CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="max-h-[360px] min-h-[360px] w-full">
+        <ChartContainer
+          config={chartConfig}
+          className='max-h-[360px] min-h-[360px] w-full'
+        >
           <LineChart
             accessibilityLayer
             data={chartData}
@@ -61,21 +65,21 @@ export function ChartLine() {
           >
             <CartesianGrid vertical={false} />
             <XAxis
-              dataKey="month"
+              dataKey='month'
               tickLine={false}
               axisLine={false}
               tickMargin={8}
               tickFormatter={(value) => value.slice(0, 3)}
             />
-           
+
             <ChartTooltip
               cursor={false}
               content={<ChartTooltipContent hideLabel />}
             />
             <Line
-              dataKey="desktop"
-              type="natural"
-              stroke="var(--color-desktop)"
+              dataKey='desktop'
+              type='natural'
+              stroke='var(--color-desktop)'
               strokeWidth={2}
               dot={false}
             />
